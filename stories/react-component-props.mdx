@@ -1,0 +1,32 @@
+<Meta title="Using react ComponentProps" />
+
+You don't have to export component's prop type/interface - when you need it you can extract it from a component using the handy `ComponentProps` generic.
+
+```ts
+import React, { FC } from "react";
+
+type Props = {
+  image: string;
+  title: string;
+};
+
+export const Poster: FC<Props> = ({ image, title }) => {
+  return (
+    <div>
+      {image} {title}{" "}
+    </div>
+  );
+};
+```
+
+```ts
+import React, { FC, ComponentProps } from "react";
+import {Poster} from './Poster';
+
+const data = ComponentProps<type of Poster> = {
+    image: '',
+    title: ''
+}
+```
+
+Ref: https://twitter.com/sulco/status/1160890708615716864

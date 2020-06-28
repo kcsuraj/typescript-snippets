@@ -1,5 +1,9 @@
 <Meta title="object key reference" />
 
+When having an object that you use to define keys for a later reference (e.g. translations), use `keyof typeof` to extract those keys into a type.
+
+This way you will know in the rest of the code what your options are, and references will be typesafe.
+
 ```ts
 const messages = {
   hello: "Hello my friend",
@@ -15,3 +19,5 @@ function reply(msg: messageKey): string {
 
 reply("listen");
 ```
+
+Ref: https://twitter.com/sulco/status/1172485703328026625
