@@ -1,0 +1,28 @@
+<!-- Ref: https://twitter.com/sulco/status/1214541115602472960 -->
+
+<Meta title="react children types" />
+
+```ts
+import { ReactElement, ReactChild, ReactNode } from "react";
+
+// TypeScript types for children like structures in React:
+
+// ReactElement
+let child1: ReactElement = <div />;
+let child2: ReactElement = <CustomComponent />;
+
+// ReactChild
+let child1: ReactChild = <div />;
+let child2: ReactChild = <CustomComponent />;
+let child3: ReactChild = "Hello World";
+let child4: ReactChild = 46;
+
+// ReactNode
+let child1: ReactNode = <div />;
+let child2: ReactNode = <CustomComponent />;
+let child3: ReactNode = "Hello World";
+let child4: ReactNode = 46;
+let child4: ReactNode = null;
+let child4: ReactNode = undefined;
+let child4: ReactNode = [<div />, 43, <CustomComponent />, null];
+```
