@@ -1,0 +1,18 @@
+<Meta title="access nested type" />
+
+You can access the nested part of a type by using the bracket notation.
+
+```ts
+interface Store {
+  bookmarks: {
+    id: number;
+    name: string;
+  }[];
+}
+
+type StoredBookmarks = Store["bookmarks"];
+
+let bookmarks: StoredBookmarks = [{ id: 0, name: "test" }];
+```
+
+Ref: https://twitter.com/sulco/status/1144601562754498560
