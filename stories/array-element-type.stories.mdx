@@ -1,0 +1,13 @@
+<!-- Ref: https://twitter.com/sulco/status/1215255647056486403 -->
+
+<Meta title="access array element type" />
+
+```ts
+type Items = Array<{ id: number; name: string }>;
+
+//option 1
+type Item = { id: number; name: string };
+
+// option 1
+type Item = Items[number];
+```
