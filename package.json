@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "predeploy": "npm run build-storybook",
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d storybook-static"
   },
   "keywords": [],
