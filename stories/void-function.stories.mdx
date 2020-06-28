@@ -1,0 +1,13 @@
+<Meta title="VoidFunction" />
+
+Instead of using `() => void` function type you can use the built-in `VoidFunction`.
+
+```ts
+// option 1
+const handleCancel: () => void = () => {};
+
+// option 2
+const handleCancel: VoidFunction = () => {};
+```
+
+Ref: https://twitter.com/sulco/status/1134435667889577986
