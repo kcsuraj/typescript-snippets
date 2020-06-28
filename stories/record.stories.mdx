@@ -1,0 +1,16 @@
+<Meta title="using record" />
+
+```ts
+// Option 1
+interface Score {
+  [key: string]: number;
+}
+
+// Option 2
+type Score = Record<string, number>;
+
+const scoreData: Score = {
+  math: 23,
+  science: 45,
+};
+```
