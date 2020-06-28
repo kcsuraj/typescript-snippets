@@ -1,0 +1,17 @@
+<Meta title="object key reference" />
+
+```ts
+const messages = {
+  hello: "Hello my friend",
+  listen: "Please listen",
+  sleep: "Sleep early",
+};
+
+type messageKey = keyof typeof messages;
+
+function reply(msg: messageKey): string {
+  return msg;
+}
+
+reply("listen");
+```
