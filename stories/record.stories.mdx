@@ -1,5 +1,7 @@
 <Meta title="using record" />
 
+## Replacing `[key: string]`
+
 ```ts
 // Option 1
 interface Score {
@@ -14,3 +16,23 @@ const scoreData: Score = {
   science: 45,
 };
 ```
+
+## Dictionary as key pair values
+
+```ts
+interface Score {
+  math: number;
+  science: number;
+}
+
+// Create empty object
+const studentScore: Record<string, Score> = {};
+
+// Create object with values
+const studentScore: Record<string, Score> = {
+  math: 2,
+  science: 3,
+};
+```
+
+TypeScript does not allow creating empty objects with defined type / interface. Using `Record` can solve this issue.
