@@ -1,0 +1,118 @@
+<Meta title="React/Context Api" />
+
+Instead of using `() => void` function type you can use the built-in `VoidFunction`.
+
+`initialState.ts`
+
+```ts
+export interface IState {
+  error: string;
+  loading: boolean;
+  data: Array<any>;
+}
+const initialState: IState = {
+  error: '',
+  loading: false,
+  data: []
+ }
+};
+export default initialState;
+```
+
+`types.ts`
+
+```ts
+export const API_REQUEST = "API_REQUEST";
+export type API_REQUEST = typeof API_REQUEST;
+
+export const API_SUCCESS = "API_SUCCESS";
+export type API_SUCCESS = typeof API_SUCCESS;
+
+export const API_ERROR = "API_ERROR";
+export type API_ERROR = typeof API_ERROR;
+```
+
+`actions.ts`
+
+```ts
+import * as types from "./types";
+
+export interface IApiRequest {
+  type: types.API_REQUEST;
+}
+
+export interface IApiSuccess {
+  type: types.API_SUCCESS;
+  payload: Array<any>;
+}
+
+export interface IApiError {
+  type: types.API_ERROR;
+  payload: string;
+}
+
+export const apiRequest = (): IAPiRequest => ({
+  type: types.API_REQUEST,
+});
+
+export const apiSuccess = (payload: Array<any>): IApiSuccess => ({
+  payload,
+  type: types.API_SUCCESS,
+});
+
+export const apiError = (payload: string): IApiError => ({
+  payload,
+  type: types.API_ERROR,
+});
+
+export type TAction = IApiRequest & IApiSuccess & IApiError;
+```
+
+`reducer.ts`
+
+```ts
+import { TAction } from "./actions";
+import { IState } from "./initialState";
+import * as types from "./types";
+
+const reducer = (state: IState, action: TAction): IState => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case types.API_REQUEST:
+      return { ...state, loading: true };
+    case types.API_SUCCESS:
+      return { ...state, loading: false, data: payload };
+    case types.API_ERROR:
+      return { ...state, loading: false, error: payload };
+    default:
+      return state;
+  }
+};
+
+export default reducer;
+```
+
+`context.ts`
+
+```ts
+import { createContext, Dispatch } from "react";
+import { TAction } from "./store/actions";
+import initialState, { IState } from "./store/initialState";
+
+interface IContextProps {
+  state: IState;
+  dispatch: Dispatch<TAction>;
+}
+
+const Context = createContext<IContextProps>({
+  dispatch: () => {
+    // Dispatch initial value
+  },
+  state: initialState,
+});
+
+export default Context;
+```
+
+Ref: https://medium.com/@suraj.kc/state-management-with-react-hooks-in-typescript-84b70b6c3fb9
