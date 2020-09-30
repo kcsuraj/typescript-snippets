@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{1252:function(t,n,e){"use strict";e.r(n);var s=e(114),i=e(414),p=Object(i.create)({base:"light",brandTitle:"TS Snippets",brandUrl:"https://github.com/kcsuraj/typescript-snippets"});s.addons.setConfig({theme:p})},415:function(t,n,e){e(416),e(563),e(1252),t.exports=e(1247)},480:function(t,n){}},[[415,1,2]]]);
