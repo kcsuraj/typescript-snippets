@@ -1,0 +1,13 @@
+<Meta title="TypeScript/Parameters" />
+
+Get the type of parameters of a function
+
+```ts
+function getMovie(genre: string, year: number) {
+  // body
+}
+
+const params: Parameters<typeof getMovie> = ["Animation", 2018];
+```
+
+Ref: https://github.com/aishstha
